@@ -3,7 +3,7 @@
     "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap>
        <select id="boardSelectAll" resultClass="HashMap">
-       	select * from article
+       	select * from article order by id
        </select>
        
        <select id="boardSelect" resultClass="HashMap">
@@ -14,4 +14,13 @@
        	update article set title = #title#, body = #body#
        	where id = #id#
        </update>
+       
+       <insert id="boardCreate" parameterClass="HashMap">
+       	insert into article values(
+		    USER_SEQ.NEXTVAL,
+		    #title#,
+		    #body#
+		)
+       </insert>
+       
 </sqlMap>

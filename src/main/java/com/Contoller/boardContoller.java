@@ -39,6 +39,25 @@ public class boardContoller {
 		}		
 	}
 	
+	//======== Create ========
+	@RequestMapping(value="/boardCreate", method=RequestMethod.GET)
+	public String boardCreate() {
+		return "board/createBoard";
+	}
+	
+	@RequestMapping(value="/boardCreate", method=RequestMethod.POST)
+	public String boardCreateSQL(String bd_title, String bd_body) throws SQLException {
+		System.out.println(bd_title);
+		System.out.println(bd_body);
+		HashMap board = new HashMap();
+		board.put("title", bd_title);
+		board.put("body", bd_body);
+		sqlMapper.insert("boardCreate",board);
+		
+		return "redirect:/boardRead";
+	}
+
+	
 	//======== Read =========
 	
 	@RequestMapping(value="/boardRead", method=RequestMethod.GET)
