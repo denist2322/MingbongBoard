@@ -40,6 +40,7 @@ public class boardContoller {
 	}
 	
 	//======== Create ========
+	
 	@RequestMapping(value="/boardCreate", method=RequestMethod.GET)
 	public String boardCreate() {
 		return "board/createBoard";
@@ -91,6 +92,14 @@ public class boardContoller {
 		board.put("body", bd_body);
 		sqlMapper.update("boardUpdate",board);
 		
+		return "redirect:/boardRead";
+	}
+	
+	//======== Delete =========
+	
+	@RequestMapping(value="/boardDelete", method=RequestMethod.GET)
+	public String boardDelete(int bd_no) throws SQLException {
+		sqlMapper.delete("boardDelete",bd_no);
 		return "redirect:/boardRead";
 	}
 }

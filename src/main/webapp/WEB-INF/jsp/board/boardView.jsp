@@ -15,7 +15,9 @@
 	<p>제목: <c:out value="${board.TITLE}"/>
 	<p>
 	내용: <c:out value="${board.BODY}"/>
-	<button type="button" onclick="location.href='boardUpdate?bd_no=${board.ID}'">수정</button></p>
+	<button type="button" onclick="location.href='boardUpdate?bd_no=${board.ID}'">수정</button>
+	<button type="button" onclick="location.href='boardDelete?bd_no=${board.ID}'">삭제</button>
+	</p>
 	</div>
 	<br/>
 </c:forEach>
