@@ -2,7 +2,16 @@
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
     "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap>
-       <select id="boardSelect" resultClass="HashMap">
+       <select id="boardSelectAll" resultClass="HashMap">
        	select * from article
        </select>
+       
+       <select id="boardSelect" resultClass="HashMap">
+       	select * from article where id = #bd_no#
+       </select>
+       
+       <update id="boardUpdate" parameterClass="HashMap">
+       	update article set title = #title#, body = #body#
+       	where id = #id#
+       </update>
 </sqlMap>

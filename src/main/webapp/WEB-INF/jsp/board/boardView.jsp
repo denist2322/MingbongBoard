@@ -11,8 +11,10 @@
 <h1>민봉 게시판</h1>
 <c:forEach var="board" items="${boardAll}">
 	<div>
-	<p>제목: <c:out value="${board.TITLE}"/></p>
-	<p>내용: <c:out value="${board.BODY}"/></p>
+	<p>제목: <c:out value="${board.TITLE}"/>
+	<p>
+	내용: <c:out value="${board.BODY}"/>
+	<button type="button" onclick="location.href='boardUpdate?bd_no=${board.ID}'">수정</button></p>
 	</div>
 </c:forEach>
 </body>
